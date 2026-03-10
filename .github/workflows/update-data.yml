@@ -1,0 +1,38 @@
+name: Update GitHub Fallback Data
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day
+    - cron: '0 0 * * *'
+  workflow_dispatch: 
+
+permissions:
+  contents: write 
+
+jobs:
+  update-fallbacks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Using modern Node to support native fetch()
+
+      - name: Run Update Script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/update-fallbacks.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add src/data/fallback-repos.json src/data/fallback-languages.json
+          
+          # This line checks if there are actually changes to commit. 
+          # If nothing changed today, it just exits peacefully.
+          git commit -m "chore: auto-update github fallback data" || exit 0
+          git push
