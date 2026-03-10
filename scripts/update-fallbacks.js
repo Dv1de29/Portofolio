@@ -1,6 +1,11 @@
 // scripts/update-fallbacks.js
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Recreate __dirname in ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const USERNAME = 'Dv1de29';
 // We will pass this token from GitHub Actions so we don't hit the 60/hr limit
