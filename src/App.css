@@ -1,0 +1,31 @@
+:root {
+  /* Core Backgrounds */
+  --bg-main: #0b0f19;
+  --bg-card: #111827;
+  
+  /* Text Colors */
+  --text-main: #ffffff;
+  --text-muted: #9ca3af;
+  --text-dark: #0f172a;
+  
+  /* Accents & Gradients */
+  --accent-cyan: #00d2ff;
+  --accent-blue: #3b82f6;
+  --accent-purple: #c084fc;
+  --gradient-text: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple));
+  
+  /* Button Backgrounds */
+  --btn-github: #1f2937;
+  --btn-linkedin: #2563eb;
+}
+
+/* Ensure the main background matches the dark theme */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+
+.app-container{
+    min-height: 100vh;
+}

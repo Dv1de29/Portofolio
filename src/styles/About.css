@@ -1,0 +1,67 @@
+.about-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.about-text {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.about-card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: left;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.about-card:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+.about-card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.8rem 0;
+  font-weight: 600;
+}
+
+.title-frontend { color: var(--accent-cyan); }
+.title-backend { color: var(--accent-blue); }
+.title-design { color: var(--accent-purple); }
+
+.card-skills {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* Stacks cards vertically on small screens */
+  }
+}
